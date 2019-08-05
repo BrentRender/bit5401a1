@@ -19,7 +19,6 @@ public class main {
     static AssignmentMarks stu5Mathmark;
     static AssignmentMarks stu5engmark;
     static LinkedList<Student> studentlist = new LinkedList<Student>();
-    static LinkedList<Student> markslist = new LinkedList<Student>();
        	
 	/**
 	* Reads a text file containing student data and uses this to populate the student objects
@@ -27,75 +26,92 @@ public class main {
 	* @param filename Path to the student data file to be read
 	* @return Whether the file was read successfully
 	*/
-	public static boolean readFile(String filename) { File file = new File(filename);
+	public static boolean readFile(String filename) { File file = new File(filename); {
+	String[][] words;
+	
+	words = new String [5][9];
+	int rowc = 0;
+	int row = 0;
+	int colc = 0;
+	int col = 0;
+	String inputline = "";
 	try {
 	Scanner scanner = new Scanner(file);
-	while(scanner.hasNextLine()){
-	scanner.useDelimiter("\\n\\r");
-	String[] words = scanner.next().split(",");
-	ArrayList<String> id = new ArrayList<String>();	
-	id.add(words[0].replaceAll("\\r\\n", ""));
-	id.add(words[9].replaceAll("\\r\\n", ""));                                                  /// not very clean code i know but this is the only way i could think of to set the strings into arraylists
-	id.add(words[18].replaceAll("\\r\\n", ""));
-	id.add(words[27].replaceAll("\r\\n",""));
-	id.add(words[36].replaceAll("\\r\\n", ""));
-	ArrayList<String> firstname = new ArrayList<String>();
-	firstname.add(words[1]);
-	firstname.add(words[10]);
-	firstname.add(words[19]);
-	firstname.add(words[28]);
-	firstname.add(words[37]);
-	ArrayList<String> lastname = new ArrayList<String>();
-	lastname.add(words[2]);
-	lastname.add(words[11]);
-	lastname.add(words[20]);
-	lastname.add(words[29]);
-	lastname.add(words[38]);
 	
-	ArrayList<String> mathmarks1 = new ArrayList<String>();
-	mathmarks1.add(words[3]);
-	mathmarks1.add(words[12]);
-	mathmarks1.add(words[21]);
-	mathmarks1.add(words[30]);
-	mathmarks1.add(words[39]);
-	ArrayList<String> mathmarks2 = new ArrayList<String>();
-	mathmarks2.add(words[4]);
-	mathmarks2.add(words[13]);
-	mathmarks2.add(words[22]);
-	mathmarks2.add(words[31]);
-	mathmarks2.add(words[40]);
-	ArrayList<String> mathmarks3 = new ArrayList<String>();
-	mathmarks3.add(words[5]);
-	mathmarks3.add(words[14]);
-	mathmarks3.add(words[23]);
-	mathmarks3.add(words[32]);
-	mathmarks3.add(words[41]);
-	ArrayList<String> englishmarks1 = new ArrayList<String>();
-	englishmarks1.add(words[6]);
-	englishmarks1.add(words[15]);
-	englishmarks1.add(words[24]);
-	englishmarks1.add(words[33]);
-	englishmarks1.add(words[42]);
-	ArrayList<String> englishmarks2 = new ArrayList<String>();
-	englishmarks2.add(words[7]);
-	englishmarks2.add(words[16]);
-	englishmarks2.add(words[25]);
-	englishmarks2.add(words[34]);
-	englishmarks2.add(words[43]);
-	ArrayList<String> englishmarks3 = new ArrayList<String>();
-	englishmarks3.add(words[8]);
-	englishmarks3.add(words[17]);
-	englishmarks3.add(words[26]);
-	englishmarks3.add(words[35]);
-	englishmarks3.add(words[44]);	
+	while(scanner.hasNextLine()){
+	inputline = scanner.nextLine();
+	String[] inarray = inputline.split(",");
+	for (int x = 0; x < inarray.length; x++) {
 		
-	addStudent(id,firstname,lastname,mathmarks1,mathmarks2,mathmarks3,englishmarks1,englishmarks2,englishmarks3); // TODO: Finish adding the parameters
-	 
+		words[rowc][x] = inarray[x];
 	}
+	
+	rowc++;
+	
+	}
+	ArrayList<String> id = new ArrayList<String>();	
+	id.add(words[0][0]);
+	id.add(words[1][0]);                                                  /// not very clean code i know but this is the only way i could think of to set the strings into arraylists
+	id.add(words[2][0]);
+	id.add(words[3][0]);
+	id.add(words[4][0]);
+	ArrayList<String> firstname = new ArrayList<String>();
+	firstname.add(words[0][1]);
+	firstname.add(words[1][1]);
+	firstname.add(words[2][1]);
+	firstname.add(words[3][1]);
+	firstname.add(words[4][1]);
+	ArrayList<String> lastname = new ArrayList<String>();
+	lastname.add(words[0][2]);
+	lastname.add(words[1][2]);
+	lastname.add(words[2][2]);
+	lastname.add(words[3][2]);
+	lastname.add(words[4][2]);
+	ArrayList<String> mathmarks1 = new ArrayList<String>();
+	mathmarks1.add(words[0][3]);
+	mathmarks1.add(words[1][3]);
+	mathmarks1.add(words[2][3]);
+	mathmarks1.add(words[3][3]);
+	mathmarks1.add(words[4][3]);
+	ArrayList<String> mathmarks2 = new ArrayList<String>();
+	mathmarks2.add(words[0][4]);
+	mathmarks2.add(words[1][4]);
+	mathmarks2.add(words[2][4]);
+	mathmarks2.add(words[3][4]);
+	mathmarks2.add(words[4][4]);	
+	ArrayList<String> mathmarks3 = new ArrayList<String>();
+	mathmarks3.add(words[0][5]);
+	mathmarks3.add(words[1][5]);
+	mathmarks3.add(words[2][5]);
+	mathmarks3.add(words[3][5]);
+	mathmarks3.add(words[4][5]);
+	ArrayList<String> englishmarks1 = new ArrayList<String>();
+	englishmarks1.add(words[0][6]);
+	englishmarks1.add(words[1][6]);
+	englishmarks1.add(words[2][6]);
+	englishmarks1.add(words[3][6]);
+	englishmarks1.add(words[4][6]);
+	ArrayList<String> englishmarks2 = new ArrayList<String>();
+	englishmarks2.add(words[0][7]);
+	englishmarks2.add(words[1][7]);
+	englishmarks2.add(words[2][7]);
+	englishmarks2.add(words[3][7]);
+	englishmarks2.add(words[4][7]);
+	ArrayList<String> englishmarks3 = new ArrayList<String>();
+	englishmarks3.add(words[0][8]);
+	englishmarks3.add(words[1][8]);
+	englishmarks3.add(words[2][8]);
+	englishmarks3.add(words[3][8]);
+	englishmarks3.add(words[4][8]);	
+	
+		
+    addStudent(id,firstname,lastname,mathmarks1,mathmarks2,mathmarks3,englishmarks1,englishmarks2,englishmarks3); // TODO: Finish adding the parameters
+	 
+	
 	scanner.close();
 	} catch (FileNotFoundException e) { System.out.println("Failed to read file");
 	}
-	return true;
+	}return true;
 	}
 		
 	
